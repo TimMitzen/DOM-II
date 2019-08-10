@@ -37,6 +37,7 @@ changeBtn.addEventListener("mouseout",(event) =>{
 
 changeBtn.addEventListener("click",(event)=>{
    event.currentTarget.style.backgroundColor = "#17A2B8";
+   
 });
 
 const removeBtn = document.querySelector("#last");
@@ -46,8 +47,11 @@ removeBtn.addEventListener("contextmenu", (event) => {
 });
 
 const mouseLeave = document.querySelector(".mouseLeave");
+
 mouseLeave.addEventListener("mouseleave",(event) =>{
-   event.currentTarget.style.width = "20%"
+   event.currentTarget.style.width.stopPropagation = "20%";
+   
+   event.currentTarget.style.color = "yellow";
 });
 
 const mouseClick = document.querySelector(".mouseLeave");
@@ -61,8 +65,11 @@ copy.addEventListener("copy",(event) =>{
   alert("You copied me")
 })
 
-const select = document.querySelector(".select");
 
-select.addEventListener("auxclick", (event) =>{
-   alert("you selected me");
+
+const stopReload = document.querySelector("#stop");
+
+stopReload.addEventListener("click" ,(event) =>{
+   alert("Out of order")
+   event.preventDefault();
 });
