@@ -1,4 +1,9 @@
 // Your code goes here
+// animation 
+TweenMax.to(".logo-heading", 2 ,{
+left:300, backgroundColor: "yellow", x:0, borderRadius: 100
+});
+
 const home = document.querySelector(".main-navigation a:first-child");
 
 const makeColor = (event) => {
@@ -11,13 +16,13 @@ const changeBack = (event) => {
 home.addEventListener("mouseover", makeColor);
 home.addEventListener("click" , changeBack);
 
-document.addEventListener("keydown", (event) => {
-if(event.key === "t"){
-   alert("you hit the Tim key")
-}else{
-   alert("you hit the wrong key")
-}
-});
+// document.addEventListener("keydown", (event) => {
+// if(event.key === "t"){
+//    alert("you hit the Tim key")
+// }else{
+//    alert("you hit the wrong key")
+// }
+// });
 
 window.onload = (event) => {
    alert("Who's page? Tim's Page!")
@@ -67,9 +72,39 @@ copy.addEventListener("copy",(event) =>{
 
 
 
-const stopReload = document.querySelector("#stop");
+const stopReload = document.querySelectorAll(".nav-link");
 
-stopReload.addEventListener("click" ,(event) =>{
-   alert("Out of order")
-   event.preventDefault();
+
+   
+stopReload.forEach((stopReload, index) =>{ 
+   stopReload.addEventListener("click",(event)=>{
+      alert("out of order");
+      event.preventDefault();
+   })
+}
+)
+
+const textGreen = document.querySelectorAll(".text-content .text-green");
+
+ textGreen.forEach((textGreen) =>{
+   document.addEventListener("keypress", (event)=> {
+   textGreen.style.color = "green";
+   })
+})
+
+const redBackground = document.querySelectorAll(".content-destination");
+
+redBackground.forEach((redBackground) =>{ 
+   redBackground.addEventListener("click", (event) => {
+      event.currentTarget.style.backgroundColor = "red";
+});
+
+});
+
+const blueText = document.querySelectorAll(".btn");
+
+blueText.forEach((blueText)=>{
+   blueText.addEventListener("click", (event) =>{
+      event.target.style.color = "blue";
+   });
 });
