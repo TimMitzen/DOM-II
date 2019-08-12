@@ -1,5 +1,7 @@
 // Your code goes here
 // animation 
+
+
 TweenMax.to(".logo-heading", 2 ,{
 left:300, backgroundColor: "yellow", x:0, borderRadius: 100
 });
@@ -103,8 +105,27 @@ redBackground.forEach((redBackground) =>{
 
 const blueText = document.querySelectorAll(".btn");
 
-blueText.forEach((blueText)=>{
-   blueText.addEventListener("click", (event) =>{
+blueText.forEach((blueTexts)=>{
+   blueTexts.addEventListener("click", (event) =>{
       event.target.style.color = "blue";
    });
 });
+//after hours
+function getRandomColor(){
+   const chars = "012345679ABCDEF";
+   let color = "#";
+   for(let i = 0; i < 6; i++){
+      color += chars[Math.floor(Math.random()*20)];
+   }
+   return color;
+}
+
+const pTags = document.querySelectorAll("p");
+
+pTags.forEach((pTag)=>{
+   pTag.addEventListener("click", (event)=>{
+      event.preventDefault();
+      pTag.style.color = getRandomColor();
+   });
+});
+
